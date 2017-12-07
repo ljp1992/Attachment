@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "qdodoo_lot_attachment",
+    'name': "qdodoo_attachment",
 
-    'summary': """
-        批次上传附件""",
+    'summary': """  """,
 
     'description': """
+1.批次号上传附件
     """,
 
     'author': "青岛欧度软件技术有限责任公司",
@@ -22,12 +22,11 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
-        'views/views.xml',
-        # 'views/templates.xml',
+        'views/stock_production_lot.xml',
+        'views/ir_attachment.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
-        # 'demo/demo.xml',
     ],
+    'application': True,
 }
