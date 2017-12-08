@@ -57,13 +57,32 @@
             </field>
         </record>
 
-        <!--<record model="ir.actions.act_window" id="ir_attachment_act">-->
-            <!--<field name="name">ir_attachment_act</field>-->
-            <!--<field name="res_model">ir.attachment</field>-->
-            <!--<field name="view_mode">tree,form</field>-->
-            <!--<field name="view_type">form</field>-->
-            <!--<field name="search_view_id" ref="qdodoo_attachment.ir_attachment_search"/>-->
-        <!--</record>-->
+        <record model="ir.actions.act_window" id="ir_attachment_act">
+            <field name="name">ir_attachment_act</field>
+            <field name="res_model">ir.attachment</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="search_view_id" ref="qdodoo_attachment.ir_attachment_search"/>
+        </record>
+
+        <record id="ir_attachment_act_tree" model="ir.actions.act_window.view">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="qdodoo_attachment.ir_attachment_tree"/>
+            <field name="act_window_id" ref="ir_attachment_act"/>
+        </record>
+
+        <record id="ir_attachment_act_form" model="ir.actions.act_window.view">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="qdodoo_attachment.ir_attachment_form"/>
+            <field name="act_window_id" ref="ir_attachment_act"/>
+        </record>
+
+        <!--<menuitem id="home_page" name="首页" sequence="0"/>-->
+        <!--<menuitem id="first_page_menu" parent="home_page" name="附件" sequence="0"/>-->
+        <!--<menuitem action="qdodoo_attachment.ir_attachment_act" id="attachment_menu" name="附件"-->
+            <!--parent="first_page_menu" sequence="0"/>-->
 
         <!--<record id="ir_attachment_act_tree" model="ir.actions.act_window.view">-->
             <!--<field name="sequence" eval="1"/>-->
@@ -78,24 +97,5 @@
             <!--<field name="view_id" ref="base.view_attachment_form"/>-->
             <!--<field name="act_window_id" ref="ir_attachment_act"/>-->
         <!--</record>-->
-
-        <!--<record id="ir_attachment_act_tree" model="ir.actions.act_window.view">-->
-            <!--<field name="sequence" eval="1"/>-->
-            <!--<field name="view_mode">tree</field>-->
-            <!--<field name="view_id" ref="qdodoo_attachment.ir_attachment_tree"/>-->
-            <!--<field name="act_window_id" ref="ir_attachment_act"/>-->
-        <!--</record>-->
-
-        <!--<record id="ir_attachment_act_form" model="ir.actions.act_window.view">-->
-            <!--<field name="sequence" eval="2"/>-->
-            <!--<field name="view_mode">form</field>-->
-            <!--<field name="view_id" ref="qdodoo_attachment.ir_attachment_form"/>-->
-            <!--<field name="act_window_id" ref="ir_attachment_act"/>-->
-        <!--</record>-->
-
-        <!--<menuitem id="home_page" name="首页" sequence="0"/>-->
-        <!--<menuitem id="first_page_menu" parent="home_page" name="附件" sequence="0"/>-->
-        <!--<menuitem action="qdodoo_attachment.ir_attachment_act" id="attachment_menu" name="附件"-->
-            <!--parent="first_page_menu" sequence="0"/>-->
     </data>
 </openerp>

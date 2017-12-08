@@ -9,7 +9,6 @@ class StockProductionLot(models.Model):
 
     @api.multi
     def view_attachment_qdodoo(self):
-        print self.env.ref('qdodoo_attachment.ir_attachment_search').id
         return {
             'type': 'ir.actions.act_window',
             'name': u'附件',
