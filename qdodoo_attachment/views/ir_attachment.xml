@@ -5,7 +5,7 @@
             <field name="name">ir_attachment_tree</field>
             <field name="model">ir.attachment</field>
             <field name="arch" type="xml">
-                <tree>
+                <tree import="false">
                     <field name="name" string="附件名称"/>
                     <field name="datas_fname" string="文件名"/>
                     <field name="create_uid" string="上传人"/>
@@ -45,13 +45,25 @@
             </field>
         </record>
 
-        <record model="ir.actions.act_window" id="ir_attachment_act">
-            <field name="name">ir_attachment_act</field>
-            <field name="res_model">ir.attachment</field>
-            <field name="view_mode">tree,form</field>
-            <field name="view_type">form</field>
-            <!--<field name="search_view_id" ref="analytic.view_account_analytic_line_filter"/>-->
+        <record id="ir_attachment_search" model="ir.ui.view">
+            <field name="name">ir_attachment_search</field>
+            <field name="model">ir.attachment</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name" string="附件名称cs"/>
+                    <field name="datas_fname" string="文件名"/>
+                    <field name="create_uid" string="上传人"/>
+                </search>
+            </field>
         </record>
+
+        <!--<record model="ir.actions.act_window" id="ir_attachment_act">-->
+            <!--<field name="name">ir_attachment_act</field>-->
+            <!--<field name="res_model">ir.attachment</field>-->
+            <!--<field name="view_mode">tree,form</field>-->
+            <!--<field name="view_type">form</field>-->
+            <!--<field name="search_view_id" ref="qdodoo_attachment.ir_attachment_search"/>-->
+        <!--</record>-->
 
         <!--<record id="ir_attachment_act_tree" model="ir.actions.act_window.view">-->
             <!--<field name="sequence" eval="1"/>-->
@@ -67,19 +79,19 @@
             <!--<field name="act_window_id" ref="ir_attachment_act"/>-->
         <!--</record>-->
 
-        <record id="ir_attachment_act_tree" model="ir.actions.act_window.view">
-            <field name="sequence" eval="1"/>
-            <field name="view_mode">tree</field>
-            <field name="view_id" ref="qdodoo_attachment.ir_attachment_tree"/>
-            <field name="act_window_id" ref="ir_attachment_act"/>
-        </record>
+        <!--<record id="ir_attachment_act_tree" model="ir.actions.act_window.view">-->
+            <!--<field name="sequence" eval="1"/>-->
+            <!--<field name="view_mode">tree</field>-->
+            <!--<field name="view_id" ref="qdodoo_attachment.ir_attachment_tree"/>-->
+            <!--<field name="act_window_id" ref="ir_attachment_act"/>-->
+        <!--</record>-->
 
-        <record id="ir_attachment_act_form" model="ir.actions.act_window.view">
-            <field name="sequence" eval="2"/>
-            <field name="view_mode">form</field>
-            <field name="view_id" ref="qdodoo_attachment.ir_attachment_form"/>
-            <field name="act_window_id" ref="ir_attachment_act"/>
-        </record>
+        <!--<record id="ir_attachment_act_form" model="ir.actions.act_window.view">-->
+            <!--<field name="sequence" eval="2"/>-->
+            <!--<field name="view_mode">form</field>-->
+            <!--<field name="view_id" ref="qdodoo_attachment.ir_attachment_form"/>-->
+            <!--<field name="act_window_id" ref="ir_attachment_act"/>-->
+        <!--</record>-->
 
         <!--<menuitem id="home_page" name="首页" sequence="0"/>-->
         <!--<menuitem id="first_page_menu" parent="home_page" name="附件" sequence="0"/>-->

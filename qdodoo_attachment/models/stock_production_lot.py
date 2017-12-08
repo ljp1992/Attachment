@@ -9,14 +9,16 @@ class StockProductionLot(models.Model):
 
     @api.multi
     def view_attachment_qdodoo(self):
+        print self.env.ref('qdodoo_attachment.ir_attachment_search').id
         return {
             'type': 'ir.actions.act_window',
             'name': u'附件',
+            'res_model': 'ir.attachment',
             'view_mode': 'tree,form',
             'view_type': 'form',
             'views': [(self.env.ref('qdodoo_attachment.ir_attachment_tree').id, 'tree'),
-                      (self.env.ref('qdodoo_attachment.ir_attachment_form').id, 'form')],
-            'res_model': 'ir.attachment',
+                      (self.env.ref('qdodoo_attachment.ir_attachment_form').id, 'form'),],
+            'search_view_id': self.env.ref('qdodoo_attachment.ir_attachment_search').id,
             'domain': [('res_model', '=', 'stock.production.lot'), ('res_id', '=', self.id)],
             'target': 'current',
             'context': {'default_res_model': 'stock.production.lot',
